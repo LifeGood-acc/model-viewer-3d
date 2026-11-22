@@ -1,0 +1,5 @@
+/* Layout and widgets are in shared/shell.css (identical in both plugins). Plugin-specific rules go here. */
+
+/* start page: what the formats are, and the examples */
+.drop-card .formats { margin: 6px 0 8px; padding-left: 1.1em; text-align: left; font-size: 11px; line-height: 1.45; color: var(--muted); }
+.drop-card .examples { justify-content: center; margin-top: 8px; }

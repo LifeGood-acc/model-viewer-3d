@@ -1,0 +1,194 @@
+{
+  "comment": "Provenance of editor/vendor. Check: node dev/vendor.mjs --check. Rebuild from npm: node dev/vendor.mjs --update.",
+  "packages": [
+    {
+      "name": "three",
+      "version": "0.187.0",
+      "license": "MIT",
+      "integrity": "sha512-Qiu7R+Cmh8CstZsY1uJOSWnVlfo7ZtNLV7mF8Jltk3LB3AtDu9cRZlcnRKkAk8Y4z6KKw35z7Y7Urd7jWY8etA==",
+      "source": "https://github.com/mrdoob/three.js/tree/r187",
+      "npm": "https://www.npmjs.com/package/three/v/0.187.0",
+      "note": "three.module.js and three.core.js are the builds of this npm release as published (build/); the npm package ships no minified builds since r187, so the readable files are vendored unchanged.",
+      "files": [
+        {
+          "from": "build/three.module.js",
+          "to": "editor/vendor/three.module.js",
+          "sha256": "104f56145899722094556490d787aae0617cc2fc3382f31df02d724ea1aee341"
+        },
+        {
+          "from": "build/three.core.js",
+          "to": "editor/vendor/three.core.js",
+          "sha256": "613e370f76638fdef83926642bf256dc9615684922de1ce1f63a8583e5d78578"
+        },
+        {
+          "from": "LICENSE",
+          "to": "editor/vendor/LICENSE.three.txt",
+          "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+        },
+        {
+          "from": "examples/jsm/loaders/GLTFLoader.js",
+          "to": "editor/vendor/addons/loaders/GLTFLoader.js",
+          "sha256": "532ac726e120039acbcd6cf54328c57acbf7b438176afaa6951257126d11bff1"
+        },
+        {
+          "from": "examples/jsm/loaders/PLYLoader.js",
+          "to": "editor/vendor/addons/loaders/PLYLoader.js",
+          "sha256": "751ff866f793ba1fc9181425748d88b7f9234c6e9983386fdaf2e664221340f2"
+        },
+        {
+          "from": "examples/jsm/loaders/OBJLoader.js",
+          "to": "editor/vendor/addons/loaders/OBJLoader.js",
+          "sha256": "355484026ac163fdeceececaa943b0473a2e169444015cd2209cc7d27b5b894d"
+        },
+        {
+          "from": "examples/jsm/loaders/STLLoader.js",
+          "to": "editor/vendor/addons/loaders/STLLoader.js",
+          "sha256": "a07441b8cd812faf8049741fe5e95373b19547e4038694753dfec26fe230a7eb"
+        },
+        {
+          "from": "examples/jsm/loaders/3MFLoader.js",
+          "to": "editor/vendor/addons/loaders/3MFLoader.js",
+          "sha256": "154d7cb43f9fd3f936350209c99e591f4dbe2f61f014862043f9e151b047e1c6"
+        },
+        {
+          "from": "examples/jsm/controls/OrbitControls.js",
+          "to": "editor/vendor/addons/controls/OrbitControls.js",
+          "sha256": "e7fca2fe9e7670a828af9b28084669a5909445b7f36f1f26cee9bf8f2961c32c"
+        },
+        {
+          "from": "examples/jsm/utils/BufferGeometryUtils.js",
+          "to": "editor/vendor/addons/utils/BufferGeometryUtils.js",
+          "sha256": "7bda2a8ba836b2bcf67cb938d4b9e1bb5d1b1bc616817103ed858c0b58296ce7"
+        },
+        {
+          "from": "examples/jsm/libs/fflate.module.js",
+          "to": "editor/vendor/addons/libs/fflate.module.js",
+          "sha256": "4ab9828cf361a8009b71094ea251e076168de20f72eaa1e745da8aba88c725ac"
+        },
+        {
+          "from": "examples/jsm/libs/meshopt_decoder.module.js",
+          "to": "editor/vendor/addons/libs/meshopt_decoder.module.js",
+          "sha256": "d428e73a000057c6c94bfcedc3412d0c2dc14ca8800e88553aab05113ad2bf19"
+        },
+        {
+          "from": "examples/jsm/exporters/GLTFExporter.js",
+          "to": "editor/vendor/addons/exporters/GLTFExporter.js",
+          "sha256": "569793baeba62baeb4ab0b3619b6b1495b45d4b2ba9690430497adb58307bdf2"
+        },
+        {
+          "from": "examples/jsm/utils/SkeletonUtils.js",
+          "to": "editor/vendor/addons/utils/SkeletonUtils.js",
+          "sha256": "b1632a703206c3d830de9fcbe515696770d04b71a15ee6b50afa6d2c3298c86f"
+        },
+        {
+          "from": "examples/jsm/postprocessing/Pass.js",
+          "to": "editor/vendor/addons/postprocessing/Pass.js",
+          "sha256": "444b409c235ead986893c472e720da1b779a56985c7d10b279c7944b52bd61c5"
+        },
+        {
+          "from": "examples/jsm/loaders/DRACOLoader.js",
+          "to": "editor/vendor/addons/loaders/DRACOLoader.js",
+          "sha256": "344684542690b7381d86970bbc428a87c89293730f9e9ec8be592b9e5b3263a9"
+        },
+        {
+          "from": "examples/jsm/libs/draco/gltf/draco_wasm_wrapper.js",
+          "to": "editor/vendor/addons/libs/draco/gltf/draco_wasm_wrapper.js",
+          "sha256": "8bb2952d2ba7d67e1414f8df819410cb0434a666be53f671fff75f68843d76f6"
+        },
+        {
+          "from": "examples/jsm/libs/draco/gltf/draco_decoder.wasm",
+          "to": "editor/vendor/addons/libs/draco/gltf/draco_decoder.wasm",
+          "sha256": "a680d927bed9cb864ddbd63521868891af2bfbe755092761b4837487618df8ac"
+        },
+        {
+          "to": "editor/vendor/LICENSE.apache-2.0.txt",
+          "sha256": "aaade63eb260977c8b4de42bbebc38af71a81a9c023ce9c4d94169bcd2808563",
+          "note": "the standard Apache License 2.0 text (trimmed from the copy in rxjs@7.8.1 at \"END OF TERMS AND CONDITIONS\"; rxjs is not otherwise used); not rebuilt by --update"
+        },
+        {
+          "from": "examples/jsm/loaders/PCDLoader.js",
+          "to": "editor/vendor/addons/loaders/PCDLoader.js",
+          "sha256": "5931640bfcba801effbf6d6c5e73fdb318488d310dff14bf46aea016e867bf79"
+        },
+        {
+          "from": "examples/jsm/loaders/FBXLoader.js",
+          "to": "editor/vendor/addons/loaders/FBXLoader.js",
+          "sha256": "04daa9a7054f17838b78a114e7d400c05d08d72afa7b62f2fc1d508909a6df3c"
+        },
+        {
+          "from": "examples/jsm/curves/NURBSCurve.js",
+          "to": "editor/vendor/addons/curves/NURBSCurve.js",
+          "sha256": "f5aaeff3ed9b659c3d9c599878ede3106d93665e3243e502a09375f2edaed7fa"
+        },
+        {
+          "from": "examples/jsm/curves/NURBSUtils.js",
+          "to": "editor/vendor/addons/curves/NURBSUtils.js",
+          "sha256": "c6bd7c4137d585098923f189687898ea3e8762ea3ecbe255d749a56353894379"
+        }
+      ]
+    },
+    {
+      "name": "fflate",
+      "version": "0.8.3",
+      "license": "MIT",
+      "integrity": "sha512-tbZNuJrLwGUp3zshBtdy4W+ORxZuIh8a5ilyIEQDC5rY1f3U20JMry0Ll3WBzU58EZKsEuJFXhb5gwv8CsPvgA==",
+      "source": "https://github.com/101arrowz/fflate",
+      "npm": "https://www.npmjs.com/package/fflate/v/0.8.3",
+      "note": "Only the license text comes from this package; editor/vendor/addons/libs/fflate.module.js is the copy that ships inside three.js (listed under three).",
+      "files": [
+        {
+          "from": "LICENSE",
+          "to": "editor/vendor/LICENSE.fflate.txt",
+          "sha256": "0a1df3a083d0c010560aa342e87959c8c1070e6fd54545741f083f22d0c8b551"
+        }
+      ]
+    },
+    {
+      "name": "meshoptimizer",
+      "version": "1.3.0",
+      "license": "MIT",
+      "integrity": "sha512-2oZqMAcEEiCtXWUjIGtZ71oPx1B0ZxYGTqIKsXB1wzWFhleNsCFxQuUJzgCV706bRcwPWtMGf1odmQvAcqKkIw==",
+      "source": "https://github.com/zeux/meshoptimizer",
+      "npm": "https://www.npmjs.com/package/meshoptimizer/v/1.3.0",
+      "note": "Encoder (compression for EXT_meshopt_compression) and simplifier (decimation, point thinning), each a JavaScript file with its WebAssembly embedded as text; loaded only when a tool is used. The decoder that opens such files is the one inside three.js (examples/jsm/libs/meshopt_decoder.module.js, 0.22).",
+      "files": [
+        {
+          "from": "meshopt_encoder.js",
+          "to": "editor/vendor/meshopt/meshopt_encoder.js",
+          "sha256": "22c128be3e22b187e2d2661882fc62f51e995f409c0fe14c9f6358cfbaff1611"
+        },
+        {
+          "from": "meshopt_simplifier.js",
+          "to": "editor/vendor/meshopt/meshopt_simplifier.js",
+          "sha256": "c3098ee4cb4fc242b84f064c88898e76e44bf58b0e1f693507f323c08cdbb5ed"
+        },
+        {
+          "from": "LICENSE.md",
+          "to": "editor/vendor/meshopt/LICENSE.meshoptimizer.txt",
+          "sha256": "f03037ca7bad1e3eb7f4a63fa6084a8baabd5ba30d3c239a9a7f35705d873e26"
+        }
+      ]
+    },
+    {
+      "name": "@sparkjsdev/spark",
+      "version": "2.4.0",
+      "license": "MIT",
+      "integrity": "sha512-aUjgBfhwDRcF3nUwiAD6Nh7IwvxEmW9liz2qrAXIm2BlPYBmn81QbXIpGFLBSr/o0TKGvEXbNIsKujgPGV/7QQ==",
+      "source": "https://github.com/sparkjsdev/spark",
+      "npm": "https://www.npmjs.com/package/@sparkjsdev/spark/v/2.4.0",
+      "note": "The Gaussian-splat renderer (World Labs, MIT), loaded only when a Gaussian-splat PLY is shown. spark.module.js is the readable (not minified) module of the npm package, bundled by Spark with rolldown from the TypeScript sources in the repository; the Rust/WebAssembly sources are in the repository too; its WebAssembly is embedded as text. It imports three and three/addons/postprocessing/Pass.js.",
+      "files": [
+        {
+          "from": "dist/spark.module.js",
+          "to": "editor/vendor/spark/spark.module.js",
+          "sha256": "5ae86ab35d4ceb655db486dcc336299775bb314c280d7e5b39f64e4539f8e0e9"
+        },
+        {
+          "from": "LICENSE",
+          "to": "editor/vendor/spark/LICENSE.spark.txt",
+          "sha256": "51829693e5dccd9ca1daa093991faac3aaa93238eb8fd5f5cb4130af85791d64"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "$schema": "https://raw.githubusercontent.com/stablyai/orca/main/docs/schemas/plugins/orca-plugin.v2.schema.json",
+  "manifestVersion": 2,
+  "id": "model-viewer-3d",
+  "name": "3D Model Viewer",
+  "version": "0.27.1",
+  "description": "View 3D models in Orca without leaving it: GLB, PLY (meshes and point clouds), OBJ, STL and 3MF. Orbit, zoom and pan, preset views, section plane, measuring, wireframe, textures, and per-part colors and visibility. Export as GLB, STL, OBJ, PLY, 3MF, PNG or a turntable video, compress a model under a size, and transform, decimate or check it as a copy. Runs fully offline and asks for no permissions.",
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "cover": {
+    "path": "docs/images/cover.png",
+    "alt": "A table scene with a vase and a ball; the vase is selected, the toolbar has six elements and the Parts tab shows its part card"
+  },
+  "screenshots": [
+    {
+      "path": "docs/images/parts-light.png",
+      "alt": "The Parts tab: a sentence, the buttons, Select several, the list and the part card with size, triangles and share of the model",
+      "caption": "Parts: select one or several and see their numbers",
+      "theme": "light"
+    },
+    {
+      "path": "docs/images/look-menu.png",
+      "alt": "The Appearance menu: four color cards with a sentence each, helpers and Advanced",
+      "caption": "Appearance: colors as cards, the rest one level down",
+      "theme": "light"
+    },
+    {
+      "path": "docs/images/studio-menu.png",
+      "alt": "The Studio menu with look tiles, background, floor, turntable and Save image, Film and Reset",
+      "caption": "Studio: looks, background, turntable",
+      "theme": "light"
+    },
+    {
+      "path": "docs/images/export.png",
+      "alt": "The export dialog with 3D file chosen: format, Make smaller, only visible parts, Advanced and Save as",
+      "caption": "Export: image, film or 3D file",
+      "theme": "light"
+    },
+    {
+      "path": "docs/images/tools.png",
+      "alt": "The Edit tab: position and size, parts and simplify mesh, with the sentence that it changes the working copy",
+      "caption": "Edit: position, parts, simplify",
+      "theme": "light"
+    },
+    {
+      "path": "docs/images/cloud-dark.png",
+      "alt": "A colored point cloud of a knot on a dark background",
+      "caption": "Point clouds, on a dark background",
+      "theme": "dark"
+    }
+  ],
+  "engines": {
+    "orca": ">=1.4.248"
+  },
+  "execution": "sandboxed-ui",
+  "pluginApi": 1,
+  "capabilities": [],
+  "contributes": {
+    "customEditors": [
+      {
+        "id": "viewer",
+        "title": "3D",
+        "extensions": [
+          ".glb",
+          ".ply",
+          ".stl",
+          ".3mf",
+          ".usdz",
+          ".splat",
+          ".spz",
+          ".fbx",
+          ".pcd"
+        ],
+        "entry": "editor/index.html",
+        "priority": "default",
+        "contentKind": "bytes",
+        "frame": "isolated"
+      },
+      {
+        "id": "viewer-text",
+        "title": "3D",
+        "extensions": [
+          ".obj",
+          ".gltf",
+          ".fbx",
+          ".pcd",
+          ".xyz",
+          ".gcode",
+          ".ply",
+          ".stl",
+          ".3dview"
+        ],
+        "entry": "editor/index.html",
+        "priority": "default",
+        "contentKind": "text",
+        "frame": "isolated"
+      }
+    ],
+    "panels": [
+      {
+        "id": "viewer",
+        "title": "3D",
+        "icon": "package",
+        "entry": "editor/panel.html"
+      }
+    ],
+    "newFiles": [
+      {
+        "id": "start",
+        "title": "3D Viewer (drop a model)",
+        "extension": ".3dview",
+        "template": "editor/start.3dview"
+      }
+    ]
+  }
+}

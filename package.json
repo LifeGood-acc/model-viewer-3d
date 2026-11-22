@@ -1,0 +1,21 @@
+{
+  "name": "model-viewer-3d",
+  "version": "0.27.1",
+  "private": true,
+  "description": "Build and test tooling for the 3D Model Viewer plugin for Orca. The plugin itself needs no build step to run; npm is only used to fetch the third-party files in editor/vendor.",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node dev/build.mjs",
+    "verify-build": "node dev/build.mjs --check",
+    "test": "node --test test/",
+    "privacy": "sh dev/privacy-check.sh"
+  },
+  "dependencies": {
+    "@sparkjsdev/spark": "2.4.0",
+    "fflate": "0.8.3",
+    "meshoptimizer": "1.3.0",
+    "three": "0.187.0"
+  }
+}
