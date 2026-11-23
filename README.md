@@ -23,23 +23,23 @@ visibility. It runs entirely inside Orca, **offline, with no permissions**.
 
 - **Look around**: drag to orbit, right-drag or Shift-drag to pan, scroll to zoom (towards the cursor). **View** (or `R`)
   resets the camera.
-- **Appearance**: background like Orca or the opposite (`B`; with a studio look it starts from the look's), **Surface | Mesh** (`W`: one button, its label is what you see), textures on or off (`T`; only for models with textures, and only in the Original and Flat looks), floor grid (`G`), axes at the
+- **Appearance**: **Surface | Mesh** (`W`: one switch with both words, the active one blue), textures on or off (`T`; only for models with textures, and only in the Original and Flat looks), floor grid (`G`), axes at the
   origin, bounding box, **mesh over the surface** (Appearance > Advanced), backfaces on or off.
 - **Parts**: a file with several meshes, materials or objects lists each one with a checkbox. **Color by part** gives every
-  part its own color; click a part in the view or in the list to select it (a dashed blue box frames it); **Ctrl or Cmd click** adds or removes a part, **Shift click** in the list selects a range, **Esc** clears; without a key (trackpad, touch) the **Select several** button in the Parts tab makes every click add a part (the tab says all this in a line under the buttons); double-click a
+  part its own color; click a part in the view or in the list to select it (a dashed blue box frames it); **Ctrl or Cmd click** adds or removes a part, **Shift click** in the list selects a range, **Esc** clears; without a key (trackpad, touch) the **Select several** button (a symbol beside the part list) makes every click add a part (the hint on selecting parts, behind the "?" of the *Part tree* card, says all this in a line); double-click a
   row to show only that part; **All / None / Invert** change all at once. The **part card** (and a chip in the view) gives size, triangles and share of the model; *More about the part* adds surface, volume, the mesh check, material, position and instance; two parts also give the distance between them.
 - **View menu**: isometric, front, back, left, right, top, bottom, hero (select or keys `1` to `8`) and *Show all* (`R`). Every view fits the whole model, from wherever the camera is; there is no separate *View* button.
-- **Section** (tab): cut the model with a plane along the file's own X, Y or Z, move it with a slider, flip the side. For G-code the tab is called **Layers**: *Up to layer n / N* and *Show travel moves*.
+- **Section** (toolbar button; its card opens while a plane is on, below 1200 px it is a tab): cut the model with a plane along the file's own X, Y or Z, move it with a slider, flip the side. For G-code it is called **Layers**: *Up to layer n / N* and *Show travel moves*.
 - **Measure** (`M`): distance, angle, circle diameter or edge length (a bar in the view with the ways to measure, and **Parts** from two parts): see *Looking closer*. Edge length measures a model edge, where the surface bends, a straight edge end to end; only when none is found (a mesh over a million triangles, a smooth part with no 20-degree edge near the click) a triangle edge stands in and the text says so.
 - **Appearance** (menu): shading and opacity: original colors, solid gray, normals, X-ray, matcap, flat or vertex colors; opacity slider for a see-through look.
 - **Export…** opens a dialog for an image, a film or a 3D file (see below). *Save image…* and *Film…* in the Studio menu open the same dialog.
 - **Animation**: glTF animations play and pause, with a clip choice.
 - **Filter**: a search box narrows long part lists by name.
 - **Texture size**: show huge textures smaller (max 4096, 2048 or 1024 px) to save GPU memory; the details show the texture memory.
-![In a narrow tab the panel is a sheet under the view](docs/images/narrow.png)
+![In a narrow tab the toolbar keeps its symbols and the sidebar is a sheet under the view](docs/images/narrow.png)
 
-- **Layout**: a toolbar with six elements on top (*View*, *Surface | Mesh* with *Appearance*, *Measure*, *Studio*, *Export…*, and *More*), view and panel next to each other; the panel has the tabs *Parts*, *Section*, *Measure*, *Info* and *Edit*. Drag the panel's edge to resize it (arrow keys too, double-click resets), fold sections one by one, close it with the button or `P`; all of it is remembered. In a narrow tab or the sidebar (under 520 px) the panel is a sheet under the view and less used buttons are in the **More** menu.
-- **Info** (tab, *Whole model*): file size, triangles, vertices or points, size along the file's own X, Y and Z, height range, grid step, unit,
+- **Layout**: a toolbar on top with a symbol in front of every word (*View*, *Surface | Mesh* with *Appearance*, *Measure*, *Section*, *Studio*, *Export…* and *More*; from 1300 px also *Open*, *Diagonal*, *Front*; the words give way to the symbols when the window is narrow) and a status bar at the bottom with the sidebar button and the numbers of the view (triangles or points, parts, grid step, zoom), an orientation cube and a scale bar in the view; from 1200 px the sidebar is two columns of cards around the view (*Files* and the *Part tree* on the left; *Section* while a plane is on, *Measurements*, the part cards *Part information*, *Dimensions*, *Volume*, *Model* and a folded *Edit* on the right); below 1200 px it is one column with the tabs *Parts*, *Section*, *Info* and *Edit* (and *Measurements n* from the first measurement on; a file starts on *Parts* or *Info*, never on an empty tab). Drag the panel's edge to resize it (arrow keys too, double-click resets), fold sections one by one, close it with the button or `P`; all of it is remembered. In a narrow tab or the sidebar (under 520 px) the panel is a sheet under the view and what does not fit on the toolbar even as a symbol (*Studio*, *Export…*, *Section*) is in the **More** menu, which has three groups: files · shortcuts · reset.
+- **Info** (the *Model* card; the *Info* tab below 1200 px): file size, triangles, vertices or points, size along the file's own X, Y and Z, height range, grid step, unit,
   texture size and memory (only for models that have textures), and load time.
 - **Orientation**: files do not always say which axis is up. Choose +Y (glTF), −Y (OpenCV / COLMAP: y points down) or +Z
   (CAD, 3D printing); the choice is remembered per format.
@@ -53,7 +53,7 @@ visibility. It runs entirely inside Orca, **offline, with no permissions**.
 
 |  |  |
 | --- | --- |
-| ![A point cloud on a dark background with the point size slider](docs/images/cloud-dark.png) | ![A 3MF model cut open by the section plane](docs/images/section-3mf.png) |
+| ![A colored point cloud of a knot on a dark background](docs/images/cloud-dark.png) | ![A 3MF model cut open by the section plane](docs/images/section-3mf.png) |
 
 ## Open without a file: start page, drop, picker
 
@@ -61,7 +61,7 @@ You do not need a file in the workspace. Three ways to get an empty viewer that 
 
 - **Sidebar panel "3D"** (right sidebar): always available, shows the start page.
 - **New file → "3D Viewer (drop a model)"** (the + menu of the tab bar or the command palette): opens a tab with the start page.
-- Any open viewer tab: **Open file…** in the toolbar, or just drop a file onto the view.
+- Any open viewer tab: **Open** in the toolbar (from 1300 px) or in the *Files* card, or just drop a file onto the view.
 
 On the start page drag a model in from Finder or any folder, or press **Choose file…**. Files one after another replace the view.
 Dropped files are read by the browser's File API, so Orca's 50 MB limit for files it hands to an editor does **not** apply:
@@ -106,8 +106,8 @@ A 3MF that came from a slicer is never written back: the copy is a plain 3MF wit
 
 ## Tools: change the working copy
 
-The **Edit** tab of the panel changes the model that is on screen, the *working copy*; the file on disk is never touched and
-nothing is saved by a tool. **Export** then writes the working copy, so the Edit tab and export work together. **Back to the file**
+The **Edit** card of the sidebar (the **Edit** tab below 1200 px) changes the model that is on screen, the *working copy*; the file on disk is never touched and
+nothing is saved by a tool. **Export** then writes the working copy, so Edit and export work together. **Back to the file**
 undoes everything. After a tool the panel shows the size and triangle numbers before and after (and, for the ones that change the
 shape, two small pictures). A 3MF that is written afresh contains no slicer data (painted colors, profiles, plates); 3MF files are only read.
 
@@ -122,11 +122,11 @@ Measured with synthetic test files (`dev/make_big.mjs`, `dev/measure-compress.mj
 
 - **Shading**: original, solid gray, normals, **X-ray** (see-through), **matcap**, **flat** (facets) and **vertex colors**. Opacity, section and backfaces work with all of them.
 - **Measure** has four ways (the *Measure* button or `M`): distance between two points, **angle** at the second of three points, **circle diameter** from three points on the rim of a round hole or disc, and **edge length** (click near an edge). Results are in the file's own axes and unit.
-- **Measure+** (0.24.0 / STEP 0.22.0): measurements stay. Each has a label on its line (value, name), the *Measure* tab lists them (rename, colour, hide, delete, change a point by dragging its marker or *Set again*), **Chain** measures several points in a row (pieces, sum, area when closed), two ticked measurements are compared (difference, ratio), *Copy as text* / *Copy as CSV*, the labels are drawn into saved pictures, and *Close file* names them. Tests: `shared-measure-store.test.mjs` (known cube, 3-4-5 triangle, 3 × 4 rectangle) and `dev/e2e-measure.mjs`.
+- **Measure+** (0.24.0 / STEP 0.22.0): measurements stay. Each has a label on its line (value, name), the *Measurements* tab (it appears with the first one) lists them (rename, colour, hide, delete, change a point by dragging its marker or *Set again*), **Chain** measures several points in a row (pieces, sum, area when closed), two ticked measurements are compared (difference, ratio), *Copy as text* / *Copy as CSV*, the labels are drawn into saved pictures, and *Close file* names them. Tests: `shared-measure-store.test.mjs` (known cube, 3-4-5 triangle, 3 × 4 rectangle) and `dev/e2e-measure.mjs`.
 - **Show the selected part**: `F` zooms to the selected part (or shows everything), a double-click on a part selects it and zooms to it; the *View* menu has *Show all* (`R`) and *Show the selected part* (`F`); `I` shows only the selected part, `Shift+I` shows all again.
 - **Explode** pulls the parts of a scene apart (a view only: an exported copy always has the parts in place); **Selected part** makes one part see-through.
 - **Parts list**: nested scene groups are indented, and the filter (from 4 parts) searches the name, the **material name** and the **color** (`#rrggbb`).
-- **Details**: *Watertight*, *Volume* and *Surface area* appear a moment after a model (up to 500,000 triangles) has loaded; **Copy details** puts the rows on the clipboard as text (no model data).
+- **Details**: *Watertight*, *Volume* and *Surface area* appear a moment after a model (up to 500,000 triangles) has loaded; **Copy numbers** puts the rows on the clipboard as text (no model data).
 - **Loading**: a dropped file over 4 MB is read in pieces; the message shows how far it is and **Cancel** stops reading. Peak memory measured with 200 MB synthetic files (Chrome on Apple Silicon, whole browser): a 221 MB GLB 1.9 GB, a 218 MB point-cloud PLY 1.8 GB, load 2 to 3 s.
 - **3MF from Bambu Studio and Orca Slicer**: triangles painted with a filament (`paint_color`, painted as a whole) show in that filament's color; finer paint (a triangle split into smaller areas) is counted in a note and keeps the part's color.
 - **Start page**: explains the formats and offers generated examples (table scene, torus, point cloud).
@@ -157,7 +157,7 @@ A PLY file in the training tools' layout (`f_dc_*`, `opacity`, `scale_*`, `rot_*
 
 ## Studio look (0.11.0)
 The *Studio* menu (key `L` switches it on and off) turns the view into a small photo studio, for product pictures and turntable films. **Original** is the default and leaves everything as it always was. Presets: *Product on white*, *Dark studio*, *Grey gradient*, *Soft daylight*; every value can be changed (then the look reads *Custom*) and is remembered; *Reset the look* (or *Reset settings*) goes back to the original.
-- **Background**: one colour (also your own), a gradient, or transparent (shown as a checkerboard; PNG keeps the alpha).
+- **Background** (top of the *Studio* menu, always usable, key `B` steps through them): Orca's own, white, a gradient, transparent (shown as a checkerboard; PNG keeps the alpha) or your own colour.
 - **Floor with soft shadow**: an invisible floor at the model's lowest point that only catches shadows (a key-light shadow plus a wide soft one straight above), strength adjustable. In a transparent PNG the shadow stays as partial transparency.
 - **Lights**: key, fill and rim light with strength, side angle and height; **reflections** from a procedural photo-studio room (no picture is loaded, nothing from the network) so metal and glossy materials look right; **exposure** and **tone mapping** (neutral, ACES, AgX).
 - **Camera** presets for product shots (3/4 view, front, top, hero) and a **turntable** (the model turns under fixed lights; start and stop, speed in degrees per second).
@@ -166,9 +166,9 @@ The *Studio* menu (key `L` switches it on and off) turns the view into a small p
 
 **Orca's own note.** For any document over 16 MiB Orca shows "Large file – may take a moment" above the view and keeps it there; the plugin cannot hide it (the check is in Orca's editor frame, not in the plugin).
 
-**Part info.** Select parts (click, Ctrl/Cmd click, Shift click in the list, Esc clears): the *part card* in the Parts section and a chip in the view give the size, triangles and share of the model; *More about the part* adds surface, volume, the mesh check, material, position and instance; two parts also give the distance between them. *Measure > Parts* measures the distance of two parts in the view.
+**Part info.** Select parts (click, Ctrl/Cmd click, Shift click in the list, Esc clears): the part cards (*Part information*, *Dimensions*, *Volume*; in the *Parts* tab below 1200 px) and a chip in the view give the size, triangles and share of the model; *More about the part* adds surface, volume, the mesh check, material, position and instance; two parts also give the distance between them. *Measure > Parts* measures the distance of two parts in the view.
 
-**Close.** The *Close* button (next to *Open file…*) empties the view and goes back to the start page; it asks first and forgets the kept last file.
+**Close.** The ✕ on the file in the *Files* card (*Close file*) empties the view and goes back to the start page; it asks first and forgets the kept last file.
 
 ## Keyboard
 
@@ -217,7 +217,7 @@ companion plugin **STEP Viewer 3D**.
 - Decoding blocks the editor briefly: measured in Chrome on Apple Silicon, a 79 MB OBJ took 1.2 s and a 204 MB PLY 1.8 s.
 - One texture per material is shown; glTF extensions beyond core PBR (clearcoat, transmission and others) are drawn the way
   three.js supports them. Meshopt-compressed and Draco-compressed glTF open; KTX2 textures are not supported (see *glTF in more forms*).
-- No editing of the original: the Edit tab changes a working copy that only Export writes. Measuring works on triangle surfaces (not on point clouds).
+- No editing of the original: Edit changes a working copy that only Export writes. Measuring works on triangle surfaces (not on point clouds).
 - The desktop app only (`frame: isolated`); in a browser client the file opens in the normal editor.
 
 ## Development

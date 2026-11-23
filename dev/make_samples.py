@@ -122,8 +122,9 @@ def png(w, h, px):  # px(x, y) -> (r, g, b)
     return b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', struct.pack('>IIBBBBB', w, h, 8, 2, 0, 0, 0)) + chunk(b'IDAT', zlib.compress(raw, 9)) + chunk(b'IEND', b'')
 
 
-def write_glb(path, meshes, image=None, anim=None):
-    """meshes: dicts name, v, f, color (linear rgba), optional n, uv. Each becomes a node with its own mesh and material."""
+def write_glb(path, meshes, image=None, anim=None, roots=None):
+    """meshes: dicts name, v, f, color (linear rgba), optional n, uv. Each becomes a node with its own mesh and material.
+    roots: optional scene tree over those nodes: a list of mesh indices and (name, [children]) groups, nested as deep as wanted (default: all meshes at the top)."""
     bin_, views, accs, mats, msh, nodes = bytearray(), [], [], [], [], []
 
     def view(data, target=None):
@@ -165,7 +166,16 @@ def write_glb(path, meshes, image=None, anim=None):
         t_acc = acc(b''.join(struct.pack('<f', v) for v in anim['times']), 5126, len(anim['times']), 'SCALAR', None, ([min(anim['times'])], [max(anim['times'])]))
         q_acc = acc(b''.join(struct.pack('<4f', *q) for q in anim['quats']), 5126, len(anim['quats']), 'VEC4', None)
         animations = [{'name': anim['name'], 'samplers': [{'input': t_acc, 'output': q_acc, 'interpolation': 'LINEAR'}], 'channels': [{'sampler': 0, 'target': {'node': anim['node'], 'path': 'rotation'}}]}]
-    g = {'asset': {'version': '2.0', 'generator': 'make_samples.py'}, 'scene': 0, 'scenes': [{'nodes': list(range(len(nodes)))}], 'nodes': nodes,
+    top = list(range(len(nodes)))
+    if roots is not None:
+        def build(spec):
+            if isinstance(spec, int):
+                return spec
+            name, kids = spec
+            nodes.append({'name': name, 'children': [build(k) for k in kids]})
+            return len(nodes) - 1
+        top = [build(r) for r in roots]
+    g = {'asset': {'version': '2.0', 'generator': 'make_samples.py'}, 'scenes': [{'nodes': top}], 'scene': 0, 'nodes': nodes,
          'meshes': msh, 'materials': mats, 'accessors': accs, 'bufferViews': views, 'buffers': [{'byteLength': len(bin_)}]}
     if animations:
         g['animations'] = animations
@@ -531,6 +541,14 @@ def main():
         {'name': 'Vase', 'v': vase_v, 'f': vase_f, 'color': lin(0x2E7DAF)},
         {'name': 'Ball', 'v': ball_v, 'f': ball_f, 'color': lin(0xC8402F), 'rough': 0.35},
     ])
+    # nested.glb: the same five parts in a scene tree three levels deep (Table > Frame > top, legs; Table > Decor > vase and Marker > ball: a group of ONE part): the tree of the part list
+    write_glb(os.path.join(OUT, 'nested.glb'), [
+        {'name': 'Floor', 'v': floor[0], 'f': floor[1], 'color': lin(0xB8B2A7)},
+        {'name': 'Table top', 'v': top[0], 'f': top[1], 'color': lin(0x9C6B3E)},
+        {'name': 'Table legs', 'v': legs_v, 'f': legs_f, 'color': lin(0x5E4026)},
+        {'name': 'Vase', 'v': vase_v, 'f': vase_f, 'color': lin(0x2E7DAF)},
+        {'name': 'Ball', 'v': ball_v, 'f': ball_f, 'color': lin(0xC8402F), 'rough': 0.35},
+    ], roots=[0, ('Table', [('Frame', [1, 2]), ('Decor', [3, ('Marker', [4])])])])
     # textured.glb: sphere with a checker texture
     sv, sf, suv = sphere(0.5, 64, 32)
     img = png(256, 256, lambda x, y: (232, 196, 64) if (x // 32 + y // 32) % 2 == 0 else (40, 60, 120))

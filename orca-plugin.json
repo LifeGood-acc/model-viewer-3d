@@ -3,32 +3,32 @@
   "manifestVersion": 2,
   "id": "model-viewer-3d",
   "name": "3D Model Viewer",
-  "version": "0.27.1",
+  "version": "0.37.0",
   "description": "View 3D models in Orca without leaving it: GLB, PLY (meshes and point clouds), OBJ, STL and 3MF. Orbit, zoom and pan, preset views, section plane, measuring, wireframe, textures, and per-part colors and visibility. Export as GLB, STL, OBJ, PLY, 3MF, PNG or a turntable video, compress a model under a size, and transform, decimate or check it as a copy. Runs fully offline and asks for no permissions.",
   "license": "MIT",
   "icon": "assets/icon.png",
   "cover": {
     "path": "docs/images/cover.png",
-    "alt": "A table scene with a vase and a ball; the vase is selected, the toolbar has six elements and the Parts tab shows its part card"
+    "alt": "A table scene with a vase and a ball; the vase is selected. Toolbar on top, part tree on the left, cards of the selected part on the right"
   },
   "screenshots": [
     {
       "path": "docs/images/parts-light.png",
-      "alt": "The Parts tab: a sentence, the buttons, Select several, the list and the part card with size, triangles and share of the model",
+      "alt": "The part tree of the scene on the left; on the right the cards of the selected part with its size, triangles and share of the model",
       "caption": "Parts: select one or several and see their numbers",
       "theme": "light"
     },
     {
       "path": "docs/images/look-menu.png",
-      "alt": "The Appearance menu: four color cards with a sentence each, helpers and Advanced",
-      "caption": "Appearance: colors as cards, the rest one level down",
+      "alt": "The Appearance menu: four ways to color the surface (Original, Gray, Color per part, X-ray) with a sentence each, floor grid, axes and Advanced",
+      "caption": "Appearance: colors, the rest one level down",
       "theme": "light"
     },
     {
       "path": "docs/images/studio-menu.png",
-      "alt": "The Studio menu with look tiles, background, floor, turntable and Save image, Film and Reset",
+      "alt": "The Studio menu on a dark background: background swatches, look tiles, floor shadow, turntable and Save image, Film and Reset the look",
       "caption": "Studio: looks, background, turntable",
-      "theme": "light"
+      "theme": "dark"
     },
     {
       "path": "docs/images/export.png",
@@ -38,7 +38,7 @@
     },
     {
       "path": "docs/images/tools.png",
-      "alt": "The Edit tab: position and size, parts and simplify mesh, with the sentence that it changes the working copy",
+      "alt": "The Edit card unfolded: position and size, parts and simplify mesh, with the sentence that it changes the working copy, never the file",
       "caption": "Edit: position, parts, simplify",
       "theme": "light"
     },

@@ -1,4 +1,5 @@
 /* Layout and widgets are in shared/shell.css (identical in both plugins). Plugin-specific rules go here. */
+:root { --plugin: #2563eb; } /* the colour of this plugin in the icon family: only the mark in the empty view uses it */
 
 /* start page: what the formats are, and the examples */
 .drop-card .formats { margin: 6px 0 8px; padding-left: 1.1em; text-align: left; font-size: 11px; line-height: 1.45; color: var(--muted); }

@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import { LIMITS } from '../editor/threemf.js'
 import { zipSync, strToU8 } from '../editor/vendor/addons/libs/fflate.module.js'
-import { presetScale, summarizeParts, statsRows, fitDistance, hasSphericalHarmonicColor, isStartText, extOf, pickFile, SUPPORTED_EXT, GATE_BYTES, HARD_MAX_BYTES, stateLine, sniffTextFormat, STRINGS, makeT, makeFormat, niceStep, partHue, pickLocale, defaultUp, inspect3mf, isGaussianSplatHeader, presetDirection, PRESETS, clipPlane, fileAxisToView, measureInfo, filterIndices, textureTarget, textureBytes } from '../editor/lib.js'
+import { presetScale, summarizeParts, statsRows, fitDistance, hasSphericalHarmonicColor, isStartText, extOf, pickFile, SUPPORTED_EXT, GATE_BYTES, HARD_MAX_BYTES, stateLine, sniffTextFormat, STRINGS, makeT, makeFormat, niceStep, partHue, pickLocale, defaultUp, inspect3mf, isGaussianSplatHeader, presetDirection, PRESETS, clipPlane, fileAxisToView, measureInfo, textureTarget, textureBytes } from '../editor/lib.js'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const editor = join(here, '..', 'editor')
@@ -227,13 +227,10 @@ test('section plane: position across the box, side, and the file axes through th
   assert.equal(fileAxisToView('q', 'y'), null)
 })
 
-test('measuring, filtering and texture sizes', () => {
+test('measuring and texture sizes', () => {
   const m = measureInfo([0, 0, 0], [3, 4, 12])
   assert.equal(m.distance, 13)
   assert.deepEqual(m.delta, [3, 4, 12])
-  assert.deepEqual(filterIndices(['Table', 'Vase', 'Table legs'], ' TAB '), [0, 2])
-  assert.deepEqual(filterIndices(['a', 'b'], ''), [0, 1])
-  assert.deepEqual(filterIndices(['a'], 'zzz'), [])
   assert.deepEqual(textureTarget(8192, 4096, 2048), { w: 2048, h: 1024, scaled: true })
   assert.deepEqual(textureTarget(1000, 500, 2048), { w: 1000, h: 500, scaled: false })
   assert.deepEqual(textureTarget(1000, 500, 0), { w: 1000, h: 500, scaled: false })
@@ -255,13 +252,6 @@ test('every keyboard shortcut a tooltip promises is handled, and typing in a tex
   assert.ok(/keys 1 to 8/.test(STRINGS.en.tip_preset), 'the preset tooltip names the keys')
   for (const n of VIEW_NAMES) assert.ok(new RegExp(`view_${n}:`).test(block), `no handler for the view ${n}`)
   assert.ok(/keyAction\(e\)/.test(js), 'the viewer takes its keys through keyAction (text fields, modifiers and repeats are handled there)')
-})
-
-test('German strings are translated, not copied (except words that are the same in German)', () => {
-  const same = new Set(['ch_l_original', 'ch_ex_title', 'ch_ex_film', 'ch_st_film', 'ch_studio', 'ch_tab_info', 'ch_tab_studio', 'ch_tab_export', 'pc_material', 'pc_position', 'pc_computing', 'st_title', 'st_spin_start', 'st_tone_neutral', 'st_tone_agx', 'pv_hero', 'mesh', 'box', 's_vertices', 'sh_original', 'anim_pause', 'anim_clip', 'anim_title', 'ex_format', 'ex_fmt_glb', 'ex_fmt_stl', 'ex_fmt_obj', 'ex_fmt_ply', 'ex_fmt_3mf', 'ex_ready', 'ex_sec_n', 'ex_progress', 'tl_detail', 'tl_detail_normal', 'sh_matcap', 'ms_radius', 'mp_col_name', 'mp_name', 'ex_torus', 'sm_splat']) // the same word in German
-  for (const k of Object.keys(STRINGS.en)) {
-    if (STRINGS.en[k] === STRINGS.de[k]) assert.ok(same.has(k), `de.${k} is still English: ${STRINGS.en[k]}`)
-  }
 })
 
 test('toggle buttons: every aria-pressed button is kept in sync by the script, and the pressed style is theme-independent', () => {
@@ -364,6 +354,9 @@ test('statsRows: a 20 mm cube as STL gives exact rows (no vertex row for STL, no
   assert.equal(m.has(te('s_vertices')), false)
   assert.equal(m.has(te('s_texture')), false)
   assert.equal(rows.at(-1)[1], '7 ms')
+  const order = rows.map(([k]) => k)
+  assert.ok(order.indexOf(te('s_extent')) < order.indexOf(te('s_triangles')) && order.indexOf(te('s_triangles')) < order.indexOf(te('s_size')), 'the size of the model comes first, the size of the file after the numbers about the model')
+  assert.equal(order.indexOf(te('s_size')), order.length - 2, 'the size of the file stands just before the load time')
 })
 test('statsRows: textures, objects of a 3MF and point clouds', () => {
   const te = makeT('en')

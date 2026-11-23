@@ -44,6 +44,8 @@ is the error text in `GLTFLoader.js` ("setKTX2Loader must be called ..."), which
 Every crate carries a permissive license, and almost all offer a choice ("OR"), of which MIT or Apache-2.0 is available for each; none is GPL, AGPL or LGPL. Spark's own crates are MIT (workspace `license = "MIT"`, Copyright World Labs Technologies).
 Licenses are taken from each crate's `Cargo.toml` as read by `cargo metadata`; the license texts of the crates were not copied one by one (see "Limits of this license check").
 
+The Spark WebAssembly is the upstream binary as published on npm, not rebuilt here. Its panic messages (Rust crate sources compiled in) contain build paths from the upstream developer's machine (a user folder, then `.cargo/registry/src/...`); those paths are part of the public npm package and are not data of this project. Removing them would change the file, so it is shipped unchanged, like the other vendored files.
+
 | Crate and version | License (SPDX, as declared) | In the shipped wasm |
 | --- | --- | --- |
 | `adler2` 2.0.1 | 0BSD OR MIT OR Apache-2.0 | linked per Cargo.lock; not named in the wasm (code inlined) |
@@ -130,6 +132,8 @@ Special cases: `foldhash` and `zlib-rs` are Zlib; `ryu` is Apache-2.0 OR BSL-1.0
 only through the compile-time random seed of `ahash`, so it runs at build time. `unicode-ident` (Unicode-3.0) is a proc-macro helper, build time only.
 
 **Limits of this license check (stated, not hidden).** (1) The license texts and copyright lines of the individual Rust crates are **not copied** into this repository. The crates are permissive (MIT, Apache-2.0, Zlib, BSD, Unlicense, CC0, BSL-1.0; see the table), and the MIT and Apache-2.0 notices of each crate are available in the crate sources named in Spark's `rust/Cargo.lock` (tag v2.4.0) and on crates.io under the exact versions listed above. This section and the list are the notice that travels with the binary. (2) The Rust standard library and `compiler-builtins` (MIT OR Apache-2.0) are compiled into every Rust WebAssembly module and are not in `Cargo.lock`. (3) It was not checked that the shipped WebAssembly is bit-identical to a rebuild from the tag (Spark's build is not reproducible here without its exact toolchain).
+
+A per-file table (source, version, license, size, SHA-256 of every bundled third-party file) is in [docs/VENDORED.md](docs/VENDORED.md).
 
 Package integrity (from the npm registry): `three@0.187.0` `sha512-Qiu7R+Cmh8CstZsY1uJOSWnVlfo7ZtNLV7mF8Jltk3LB3AtDu9cRZlcnRKkAk8Y4z6KKw35z7Y7Urd7jWY8etA==`;
 `fflate@0.8.3` `sha512-tbZNuJrLwGUp3zshBtdy4W+ORxZuIh8a5ilyIEQDC5rY1f3U20JMry0Ll3WBzU58EZKsEuJFXhb5gwv8CsPvgA==`;

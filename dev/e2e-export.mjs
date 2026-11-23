@@ -58,16 +58,15 @@ const open = async (file, extra = '') => {
   await sleep(300)
   await waitFor(`document.documentElement.dataset.state === 'ok'`, 60000, `${file} to load`)
 }
-// what the viewer shows now: counts from its parts, and the extent line from the details
+// what the viewer shows now: counts from its parts, and the extent from the row of three sizes in the Info card
 const shown = () => ev(`(() => {
   const parts = window.__h.parts
   const dd = [...document.querySelectorAll('#stats dd, #stats-more dd')].map((e) => e.textContent)
   const dt = [...document.querySelectorAll('#stats dt, #stats-more dt')].map((e) => e.textContent)
-  const ext = dd[dt.indexOf('Size X × Y × Z')] || ''
   return { state: document.documentElement.dataset.state,
     parts: parts.length, tris: parts.reduce((a, p) => a + p.tris, 0), points: parts.filter((p) => p.kind === 'points').reduce((a, p) => a + p.verts, 0),
     height: ((dd[dt.indexOf('Height range')] || '').replace(/\u2212/g, '-').match(/-?[\\d.]+/g) || []).map(Number).slice(0, 2),
-    extent: (ext.match(/[\\d.]+/g) || []).map(Number).slice(0, 3), unit: dd[dt.indexOf('Unit')] || '', anim: !document.getElementById('anim-sec').hidden,
+    extent: [...document.querySelectorAll('#info-dims-row .dim-n')].map((e) => Number(e.textContent.replace(/,/g, ''))), unit: dd[dt.indexOf('Unit')] || '', anim: !document.getElementById('anim-sec').hidden,
     textures: dt.includes('Texture') }
 })()`)
 const glbJson = (b) => JSON.parse(b.subarray(20, 20 + b.readUInt32LE(12)).toString('utf8'))
@@ -763,7 +762,7 @@ try {
         await waitFor(`[...document.querySelectorAll('#stats dt, #stats-more dt')].some((d) => d.textContent === 'Volume')`, 30000, `${file} volume`)
         const sh = await shown()
         check(sh.tris === e.tris, `${file}: ${sh.tris} triangles (expected ${e.tris})`)
-        const ext3 = (await detailText('Size X × Y × Z')).match(/-?[\d,]*\.?\d+/g).slice(0, 3).map((x) => Number(x.replace(/,/g, '')))
+        const ext3 = await ev(`[...document.querySelectorAll('#info-dims-row .dim-n')].map((e) => Number(e.textContent.replace(/,/g, '')))`) // the three sizes are the row X, Y, Z at the top of the Info card (UX v3 round 4)
         const wantSize = [...e.size].map((v) => v * scale)
         check(ext3.length === 3 && [...ext3].sort((a, b) => a - b).every((v, i) => near(v, [...wantSize].sort((a, b) => a - b)[i], 0.02)), `${file}: size ${ext3.join(' x ')} (expected about ${wantSize.map((v) => +v.toPrecision(3)).join(' x ')})`)
         const vol = await detailText('Volume')

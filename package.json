@@ -1,6 +1,6 @@
 {
   "name": "model-viewer-3d",
-  "version": "0.27.1",
+  "version": "0.37.0",
   "private": true,
   "description": "Build and test tooling for the 3D Model Viewer plugin for Orca. The plugin itself needs no build step to run; npm is only used to fetch the third-party files in editor/vendor.",
   "license": "MIT",

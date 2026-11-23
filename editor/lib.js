@@ -20,9 +20,9 @@ export const STRINGS = {
     bg_look: 'like the look',
     surface: 'Surface',
     mesh: 'Mesh',
-    tip_mesh_on: 'Shows the closed surface. Click for the mesh, the edges of all triangles (W)',
+    tip_mesh_on: 'Surface shown. Click for the mesh (W)',
     tip_surface_on: 'Show the surface again (W)',
-    tip_texture_shading: 'Textures show in the Original and Flat looks only (Appearance > Shading)',
+    tip_texture_shading: 'Textures show in the Original and Flat looks only',
     reset_prefs: 'Reset all',
     texture: 'Texture',
     grid: 'Grid',
@@ -30,15 +30,15 @@ export const STRINGS = {
     box: 'Box',
     over: 'Mesh over',
     backfaces: 'Backfaces',
-    panel: 'Panel',
-    tip_background: 'Background: like Orca (or like the studio look), or the opposite (B)',
+    panel: 'Sidebar',
+    tip_background: 'Next background (B)',
     tip_texture: 'Textures on or off (T)',
     tip_grid: 'Floor grid (G)',
     tip_axes: 'X (red), Y (green), Z (blue) axes at the origin',
     tip_box: 'Bounding box',
     tip_over: 'Draws the mesh lines over the closed surface',
     tip_backfaces: 'Draw the back side of surfaces',
-    tip_panel: 'Show or hide the panel (P)',
+    tip_panel: 'Show or hide the sidebar (P)',
     stats: 'Details',
     orientation: 'Orientation',
     up_is: 'Up is',
@@ -57,14 +57,14 @@ export const STRINGS = {
     invert: 'Invert',
     color_by_part: 'Color by part',
     tip_color_by_part: 'Give every part its own color',
-    tip_tint_shading: 'Colors per part show in the Original look only (Appearance > Shading)',
+    tip_tint_shading: 'Colors per part show in the Original look only',
     studio_unlit: 'This look is not lit: studio lights change nothing here',
     studio_points_no_shadow: 'Points and splats cast no shadow',
     tip_needs_selection: 'Select a part first',
     layer_upto: 'Up to layer {n} / {total}',
     layer_travel: 'Show travel moves',
     parts_hint: 'Click a part in the view to select it. Double-click a row to show only that part.',
-    parts_more: '… and {n} more (list limited to {max}; All / None apply to all parts).',
+    parts_more: '… and {n} more (list limited to {max}; the buttons beside the list apply to all parts).',
     visible_label: 'Visible: {name}',
     s_size: 'File size',
     s_triangles: 'Triangles',
@@ -105,7 +105,7 @@ export const STRINGS = {
     pv_right: 'Right',
     pv_top: 'Top',
     pv_bottom: 'Bottom',
-    tip_preset: 'Camera views: every view shows the whole model (keys 1 to 8, R shows all)',
+    tip_preset: 'Pick a view (keys 1 to 8, R shows all)',
     measure: 'Measure',
     tip_measure: 'Measure the distance between two points on the surface (M)',
     measure_hint: 'Click two points on the surface. Click again to start over, Esc to leave.',
@@ -150,7 +150,7 @@ export const STRINGS = {
     pick_file: 'Choose file…',
     pick_folder: 'Choose folder…',
     reading_folder: 'Reading the folder …',
-    tip_pick_folder: 'Open the first model in a folder; a .gltf finds its separate files there',
+    tip_pick_folder: 'Open the first model in a folder.',
     open_file: 'Open another file…',
     tip_open_file: 'Open a file from anywhere (or drop it onto the view)',
     unsupported_file: 'The format .{ext} is not supported here. Supported: {list}.',
@@ -167,12 +167,12 @@ export const STRINGS = {
     s_name: 'File',
     start_title: 'Open a 3D file',
     toolbar_label: 'Toolbar',
-    side_title: 'Panel',
-    side_close: 'Close panel',
+    side_title: 'Sidebar',
+    side_close: 'Close sidebar',
     side_empty: 'Open a file to see its details and settings here.',
     more: 'More ▾',
     more_tip: 'More: open a folder, reset everything',
-    resizer_label: 'Resize the panel (arrow keys; double-click resets)',
+    resizer_label: 'Resize the sidebar (arrow keys; double-click resets)',
     waiting: 'Waiting for the file …',
     gl_lost: 'The graphics context was lost (for example after a GPU reset). The view returns when the system restores it.',
     gl_unavailable: 'WebGL is not available here, so 3D models cannot be drawn.',
@@ -256,9 +256,9 @@ export const STRINGS = {
     bg_look: 'wie der Look',
     surface: 'Fläche',
     mesh: 'Mesh',
-    tip_mesh_on: 'Zeigt die geschlossene Fläche. Klicken für das Mesh, die Kanten aller Dreiecke (W)',
+    tip_mesh_on: 'Fläche wird gezeigt. Klick: Mesh (W)',
     tip_surface_on: 'Wieder die Fläche zeigen (W)',
-    tip_texture_shading: 'Texturen zeigen sich nur in den Looks Original und Flach (Darstellung)',
+    tip_texture_shading: 'Texturen gibt es nur in den Looks Original und Flach',
     reset_prefs: 'Alles zurücksetzen',
     texture: 'Textur',
     grid: 'Raster',
@@ -266,15 +266,15 @@ export const STRINGS = {
     box: 'Box',
     over: 'Netz drüber',
     backfaces: 'Rückseiten',
-    panel: 'Leiste',
-    tip_background: 'Hintergrund: wie Orca (oder wie der Studio-Look), oder das Gegenteil (B)',
+    panel: 'Seitenleiste',
+    tip_background: 'Nächster Hintergrund (B)',
     tip_texture: 'Textur an oder aus (T)',
     tip_grid: 'Bodenraster (G)',
     tip_axes: 'Achsen X (rot), Y (grün), Z (blau) am Ursprung',
     tip_box: 'Umgebungsbox',
     tip_over: 'Zeichnet die Netzlinien über die geschlossene Fläche',
     tip_backfaces: 'Rückseiten der Flächen zeichnen',
-    tip_panel: 'Leiste ein- oder ausblenden (P)',
+    tip_panel: 'Seitenleiste ein- oder ausblenden (P)',
     stats: 'Kennzahlen',
     orientation: 'Ausrichtung',
     up_is: 'Oben ist',
@@ -293,14 +293,14 @@ export const STRINGS = {
     invert: 'Umkehren',
     color_by_part: 'Farbe je Teil',
     tip_color_by_part: 'Jedes Teil in einer eigenen Farbe',
-    tip_tint_shading: 'Farbe je Teil zeigt sich nur im Look Original (Darstellung)',
+    tip_tint_shading: 'Farbe je Teil gibt es nur im Look Original',
     studio_unlit: 'Dieser Look ist unbeleuchtet: Studio-Lichter ändern hier nichts',
     studio_points_no_shadow: 'Punkte und Splats werfen keinen Schatten',
     tip_needs_selection: 'Wähle zuerst ein Teil',
     layer_upto: 'Bis Schicht {n} / {total}',
     layer_travel: 'Leerfahrten zeigen',
     parts_hint: 'Klick ins Bild wählt ein Teil. Doppelklick auf eine Zeile zeigt nur dieses Teil.',
-    parts_more: '… und {n} weitere (Liste auf {max} begrenzt; „Alle“ / „Keine“ gilt für alle Teile).',
+    parts_more: '… und {n} weitere (Liste auf {max} begrenzt; die Knöpfe neben der Liste gelten für alle Teile).',
     visible_label: 'Sichtbar: {name}',
     s_size: 'Dateigröße',
     s_triangles: 'Dreiecke',
@@ -331,7 +331,7 @@ export const STRINGS = {
     part_mesh: 'Teil',
     part_points: 'Punkte',
     part_lines: 'Linien',
-    preset: 'Ansicht',
+    preset: 'Blick',
     pv_all: 'Alles zeigen (R)',
     pv_hero: 'Hero',
     pv_iso: 'Isometrisch',
@@ -341,7 +341,7 @@ export const STRINGS = {
     pv_right: 'Rechts',
     pv_top: 'Oben',
     pv_bottom: 'Unten',
-    tip_preset: 'Kameraansichten: jede passt das ganze Modell ein (Tasten 1 bis 8, R zeigt alles)',
+    tip_preset: 'Blick wählen (Tasten 1 bis 8, R zeigt alles)',
     measure: 'Messen',
     tip_measure: 'Abstand zwischen zwei Punkten auf der Oberfläche messen (M)',
     measure_hint: 'Zwei Punkte auf der Oberfläche anklicken. Erneut klicken beginnt neu, Esc beendet.',
@@ -386,7 +386,7 @@ export const STRINGS = {
     pick_file: 'Datei wählen …',
     pick_folder: 'Ordner wählen …',
     reading_folder: 'Der Ordner wird gelesen …',
-    tip_pick_folder: 'Das erste Modell in einem Ordner öffnen; eine .gltf findet dort ihre getrennten Dateien',
+    tip_pick_folder: 'Das erste Modell im Ordner öffnen.',
     open_file: 'Andere Datei öffnen …',
     tip_open_file: 'Eine Datei von überall öffnen (oder auf die Ansicht ziehen)',
     unsupported_file: 'Das Format .{ext} wird hier nicht unterstützt. Unterstützt: {list}.',
@@ -403,12 +403,12 @@ export const STRINGS = {
     s_name: 'Datei',
     start_title: 'Eine 3D-Datei öffnen',
     toolbar_label: 'Werkzeugleiste',
-    side_title: 'Leiste',
-    side_close: 'Leiste schließen',
+    side_title: 'Seitenleiste',
+    side_close: 'Seitenleiste schließen',
     side_empty: 'Eine Datei öffnen, um hier Kennzahlen und Einstellungen zu sehen.',
     more: 'Mehr ▾',
     more_tip: 'Mehr: Ordner öffnen, alles zurücksetzen',
-    resizer_label: 'Leistenbreite ändern (Pfeiltasten; Doppelklick setzt zurück)',
+    resizer_label: 'Seitenleiste verbreitern (Pfeiltasten; Doppelklick: zurück)',
     waiting: 'Warte auf die Datei …',
     gl_lost: 'Der Grafikkontext ging verloren (z. B. nach einem GPU-Reset). Die Ansicht kommt zurück, sobald das System ihn wiederherstellt.',
     gl_unavailable: 'WebGL ist hier nicht verfügbar, 3D-Modelle können nicht gezeichnet werden.',
@@ -704,13 +704,6 @@ export function measureInfo(a, b) {
   return { distance: Math.hypot(...d), delta: d }
 }
 
-/** Part indices whose label contains the query (case-insensitive, trimmed); an empty query keeps all. */
-export function filterIndices(labels, query) {
-  const q = String(query || '').trim().toLowerCase()
-  if (!q) return labels.map((_, i) => i)
-  return labels.flatMap((l, i) => (String(l).toLowerCase().includes(q) ? [i] : []))
-}
-
 /** Target size of a texture under a limit: scaled down by powers of two of the long side, never up. */
 export function textureTarget(w, h, max) {
   const m = Math.max(w, h)
@@ -768,21 +761,23 @@ export function stateLine(plugin, info) {
 /** The rows of the "Info" list (label, value) from plain numbers; `textures` is `[{ w, h }]`. */
 export function statsRows(c) {
   const { t, fmt, fmtMB, fmtLen, tris, verts, pts, fileInfo, unit, size, bounds, textures } = c
-  const rows = fileInfo.name ? [[t('s_name'), fileInfo.name], [t('s_size'), fmtMB(fileInfo.bytes)]] : [[t('s_size'), fmtMB(fileInfo.bytes)]]
+  // the order a person asks in: name, how big (extent), how much (triangles, points, parts), then the checks; the file's size and the load time come last
+  const rows = fileInfo.name ? [[t('s_name'), fileInfo.name]] : []
+  rows.push([t('s_extent'), `${fmtLen(size.x)} × ${fmtLen(size.y)} × ${fmtLen(size.z)} ${unit.short}`])
   if (tris) rows.push([t('s_triangles'), fmt(tris)])
   if (verts && fileInfo.type !== 'stl') rows.push([t('s_vertices'), fmt(verts)])
   if (pts) rows.push([t('s_points'), fmt(pts)])
   if (c.partCount > 1) rows.push([t(fileInfo.type === '3mf' ? 's_objects' : 's_parts'), fmt(c.partCount)])
-  rows.push([t('s_extent'), `${fmtLen(size.x)} × ${fmtLen(size.y)} × ${fmtLen(size.z)} ${unit.short}`])
   rows.push([t('s_height'), `${fmtLen(bounds.min.y)} … ${fmtLen(bounds.max.y)} ${unit.short}`])
   rows.push(...c.checks)
   rows.push([t('s_grid'), `${fmtLen(c.gridStep)} ${unit.short}`])
-  rows.push([t('s_unit'), unit.label])
+  rows.push([t('s_unit'), unit.label]) // one level down: the unit is set in the Info tab's own row
   if (textures.length) {
     const img = textures[0]
     rows.push([t('s_texture'), textures.length > 1 ? t('s_texture_n', { n: textures.length }) : img.w ? `${img.w} × ${img.h}` : '1'])
     rows.push([t('s_texmem'), fmtMB(textures.reduce((a, tx) => a + (tx.w ? textureBytes(tx.w, tx.h) : 0), 0))])
   }
+  rows.push([t('s_size'), fmtMB(fileInfo.bytes)])
   rows.push([t('s_load'), c.dur(c.ms)])
   return rows
 }

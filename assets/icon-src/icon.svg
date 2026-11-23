@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <title>3D Model Viewer</title>
+  <rect width="256" height="256" rx="56" fill="#2563EB"/>
+  <rect x="2" y="2" width="252" height="252" rx="54" fill="none" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="4"/>
+  <polygon points="128,44 212,92 128,128 44,92" fill="#FFFFFF" fill-opacity="0.35"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linejoin="round" stroke-linecap="round">
+    <polygon points="44,92 128,44 212,92 212,164 128,212 44,164"/>
+    <polyline points="44,92 128,128 212,92"/>
+    <line x1="128" y1="128" x2="128" y2="212"/>
+  </g>
+</svg>
